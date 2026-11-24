@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.ThemeDictionaries>
+		<ResourceDictionary x:Key="Light">
+			<Color x:Key="SurfaceColor">#F2FBFF</Color>
+			<Color x:Key="OnSurfaceColor">#0B0B14</Color>
+			<Color x:Key="BackgroundColor">#F2FBFF</Color>
+			<Color x:Key="OnBackgroundColor">#0B0B14</Color>
+		</ResourceDictionary>
+		<ResourceDictionary x:Key="Default">
+			<Color x:Key="SurfaceColor">#0B0B14</Color>
+			<Color x:Key="OnSurfaceColor">#E8FDFF</Color>
+			<Color x:Key="BackgroundColor">#07070F</Color>
+			<Color x:Key="OnBackgroundColor">#E8FDFF</Color>
+		</ResourceDictionary>
+	</ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

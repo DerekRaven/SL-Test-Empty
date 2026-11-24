@@ -1,0 +1,91 @@
+﻿<Page x:Class="NeonCounterApp.Presentation.MainPage"
+      xmlns:uen="using:Uno.Extensions.Navigation.UI"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      Background="{ThemeResource BackgroundBrush}">
+    <utu:SafeArea Insets="All">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <StackPanel MaxWidth="480"
+                        Padding="20,24"
+                        Spacing="16"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <StackPanel Spacing="4"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Title}"
+                               Style="{StaticResource HeadlineMedium}"
+                               Foreground="{ThemeResource PrimaryBrush}"
+                               CharacterSpacing="300"
+                               HorizontalAlignment="Center" />
+                    <TextBlock Text="{Binding Subtitle}"
+                               Style="{StaticResource LabelMedium}"
+                               Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                               CharacterSpacing="200"
+                               HorizontalAlignment="Center" />
+                </StackPanel>
+
+                <utu:CardContentControl Style="{StaticResource OutlinedCardContentControlStyle}"
+                                        IsClickable="False"
+                                        HorizontalAlignment="Stretch">
+                    <StackPanel Padding="24,32"
+                                Spacing="12"
+                                HorizontalAlignment="Stretch">
+                        <Border Background="{ThemeResource SecondaryBrush}"
+                                Padding="12,4"
+                                HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding StatusText}"
+                                       Style="{StaticResource LabelMedium}"
+                                       Foreground="{ThemeResource OnSecondaryBrush}"
+                                       CharacterSpacing="200" />
+                        </Border>
+                        <TextBlock Text="{Binding CountText}"
+                                   Style="{StaticResource DisplayLarge}"
+                                   Foreground="{ThemeResource PrimaryBrush}"
+                                   HorizontalAlignment="Center"
+                                   AutomationProperties.Name="Current count" />
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="8"
+                                    HorizontalAlignment="Center">
+                            <TextBlock Text="PEAK"
+                                       Style="{StaticResource LabelMedium}"
+                                       Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding PeakText}"
+                                       Style="{StaticResource TitleMedium}"
+                                       Foreground="{ThemeResource TertiaryBrush}"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </utu:CardContentControl>
+
+                <Button Content="&#x2B;"
+                        Style="{StaticResource FilledButtonStyle}"
+                        FontSize="32"
+                        Height="72"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Click="Increment_Click"
+                        AutomationProperties.Name="Increment" />
+
+                <StackPanel Orientation="Horizontal"
+                            Spacing="12"
+                            HorizontalAlignment="Center">
+                    <Button Content="&#x2212;"
+                            Style="{StaticResource OutlinedButtonStyle}"
+                            Width="96"
+                            Click="Decrement_Click"
+                            AutomationProperties.Name="Decrement" />
+                    <Button Content="{Binding StepText}"
+                            Style="{StaticResource OutlinedButtonStyle}"
+                            MinWidth="120"
+                            Click="Step_Click"
+                            AutomationProperties.Name="Change step size" />
+                    <Button Content="RESET"
+                            Style="{StaticResource TextButtonStyle}"
+                            Click="Reset_Click"
+                            AutomationProperties.Name="Reset counter" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </utu:SafeArea>
+</Page>

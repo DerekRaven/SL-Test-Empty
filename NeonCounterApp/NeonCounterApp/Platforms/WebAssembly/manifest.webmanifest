@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "NeonCounterApp",
+  "display": "standalone",
+  "name": "NeonCounterApp",
+  "short_name": "NeonCounterApp",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
