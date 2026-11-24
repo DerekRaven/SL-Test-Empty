@@ -3,7 +3,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ResourceDictionary.ThemeDictionaries>
 		<ResourceDictionary x:Key="Light">
-			<Color x:Key="SurfaceColor">#F2FBFF</Color>
+			<Color x:Key="SurfaceColor">#B2FBFF</Color>
 			<Color x:Key="OnSurfaceColor">#0B0B14</Color>
 			<Color x:Key="BackgroundColor">#F2FBFF</Color>
 			<Color x:Key="OnBackgroundColor">#0B0B14</Color>
