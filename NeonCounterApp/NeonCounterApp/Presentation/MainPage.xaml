@@ -3,61 +3,57 @@
       xmlns:utu="using:Uno.Toolkit.UI"
       Background="{ThemeResource BackgroundBrush}">
     <utu:SafeArea Insets="All">
-        <ScrollViewer VerticalScrollBarVisibility="Hidden">
-            <StackPanel MaxWidth="480"
-                        Padding="20,24"
-                        Spacing="16"
+        <Grid MaxWidth="480"
+              Padding="{ThemeResource Space600Thickness}"
+              RowDefinitions="Auto,*,Auto">
+
+            <utu:AutoLayout Grid.Row="0"
+                            Orientation="Horizontal"
+                            Justify="SpaceBetween"
+                            CounterAxisAlignment="Center">
+                <TextBlock Text="{Binding Title}"
+                           Style="{StaticResource LabelLarge}"
+                           Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                           CharacterSpacing="400"
+                           VerticalAlignment="Center" />
+                <Border Background="{ThemeResource PrimaryContainerBrush}"
+                        CornerRadius="{ThemeResource RadiusFullCornerRadius}"
+                        Padding="14,6">
+                    <TextBlock Text="{Binding StatusText}"
+                               Style="{StaticResource LabelSmall}"
+                               Foreground="{ThemeResource OnPrimaryContainerBrush}"
+                               CharacterSpacing="150" />
+                </Border>
+            </utu:AutoLayout>
+
+            <StackPanel Grid.Row="1"
+                        Spacing="4"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-
-                <StackPanel Spacing="4"
+                <TextBlock Text="{Binding CountText}"
+                           Style="{StaticResource DisplayLarge}"
+                           FontSize="136"
+                           FontWeight="Light"
+                           Foreground="{ThemeResource OnSurfaceBrush}"
+                           HorizontalAlignment="Center"
+                           AutomationProperties.Name="Current count" />
+                <StackPanel Orientation="Horizontal"
+                            Spacing="8"
                             HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding Title}"
-                               Style="{StaticResource HeadlineMedium}"
-                               Foreground="{ThemeResource PrimaryBrush}"
-                               CharacterSpacing="300"
-                               HorizontalAlignment="Center" />
-                    <TextBlock Text="{Binding Subtitle}"
-                               Style="{StaticResource LabelMedium}"
+                    <TextBlock Text="PEAK"
+                               Style="{StaticResource LabelSmall}"
                                Foreground="{ThemeResource OnSurfaceVariantBrush}"
-                               CharacterSpacing="200"
-                               HorizontalAlignment="Center" />
+                               CharacterSpacing="300"
+                               VerticalAlignment="Center" />
+                    <TextBlock Text="{Binding PeakText}"
+                               Style="{StaticResource TitleMedium}"
+                               Foreground="{ThemeResource PrimaryBrush}"
+                               VerticalAlignment="Center" />
                 </StackPanel>
+            </StackPanel>
 
-                <utu:CardContentControl Style="{StaticResource OutlinedCardContentControlStyle}"
-                                        IsClickable="False"
-                                        HorizontalAlignment="Stretch">
-                    <StackPanel Padding="24,32"
-                                Spacing="12"
-                                HorizontalAlignment="Stretch">
-                        <Border Background="{ThemeResource SecondaryBrush}"
-                                Padding="12,4"
-                                HorizontalAlignment="Center">
-                            <TextBlock Text="{Binding StatusText}"
-                                       Style="{StaticResource LabelMedium}"
-                                       Foreground="{ThemeResource OnSecondaryBrush}"
-                                       CharacterSpacing="200" />
-                        </Border>
-                        <TextBlock Text="{Binding CountText}"
-                                   Style="{StaticResource DisplayLarge}"
-                                   Foreground="{ThemeResource PrimaryBrush}"
-                                   HorizontalAlignment="Center"
-                                   AutomationProperties.Name="Current count" />
-                        <StackPanel Orientation="Horizontal"
-                                    Spacing="8"
-                                    HorizontalAlignment="Center">
-                            <TextBlock Text="PEAK"
-                                       Style="{StaticResource LabelMedium}"
-                                       Foreground="{ThemeResource OnSurfaceVariantBrush}"
-                                       VerticalAlignment="Center" />
-                            <TextBlock Text="{Binding PeakText}"
-                                       Style="{StaticResource TitleMedium}"
-                                       Foreground="{ThemeResource TertiaryBrush}"
-                                       VerticalAlignment="Center" />
-                        </StackPanel>
-                    </StackPanel>
-                </utu:CardContentControl>
-
+            <StackPanel Grid.Row="2"
+                        Spacing="12">
                 <Button Content="&#x2B;"
                         Style="{StaticResource FilledButtonStyle}"
                         FontSize="32"
@@ -66,26 +62,35 @@
                         HorizontalContentAlignment="Center"
                         Click="Increment_Click"
                         AutomationProperties.Name="Increment" />
-
-                <StackPanel Orientation="Horizontal"
-                            Spacing="12"
-                            HorizontalAlignment="Center">
+                <utu:AutoLayout Orientation="Horizontal"
+                                Spacing="12">
                     <Button Content="&#x2212;"
-                            Style="{StaticResource OutlinedButtonStyle}"
-                            Width="96"
+                            Style="{StaticResource FilledTonalButtonStyle}"
+                            FontSize="22"
+                            Height="52"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            utu:AutoLayout.PrimaryAlignment="Stretch"
                             Click="Decrement_Click"
                             AutomationProperties.Name="Decrement" />
                     <Button Content="{Binding StepText}"
-                            Style="{StaticResource OutlinedButtonStyle}"
-                            MinWidth="120"
+                            Style="{StaticResource FilledTonalButtonStyle}"
+                            Height="52"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            utu:AutoLayout.PrimaryAlignment="Stretch"
                             Click="Step_Click"
                             AutomationProperties.Name="Change step size" />
                     <Button Content="RESET"
                             Style="{StaticResource TextButtonStyle}"
+                            Height="52"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            utu:AutoLayout.PrimaryAlignment="Stretch"
                             Click="Reset_Click"
                             AutomationProperties.Name="Reset counter" />
-                </StackPanel>
+                </utu:AutoLayout>
             </StackPanel>
-        </ScrollViewer>
+        </Grid>
     </utu:SafeArea>
 </Page>
