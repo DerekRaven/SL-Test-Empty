@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "PastaShapesApp",
+  "display": "standalone",
+  "name": "PastaShapesApp",
+  "short_name": "PastaShapesApp",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

@@ -1,0 +1,108 @@
+<Page x:Class="PastaShapesApp.Presentation.PastaShapesPage"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      Background="{ThemeResource BackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <utu:NavigationBar Grid.Row="0"
+                           Content="Pasta Shapes" />
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Padding="24,16,24,32"
+                        Spacing="20"
+                        MaxWidth="900">
+
+                <StackPanel Spacing="8">
+                    <TextBlock Text="{Binding Heading}"
+                               Style="{StaticResource HeadlineMedium}"
+                               TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Intro}"
+                               Style="{StaticResource BodyMedium}"
+                               Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                               TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding CountLabel}"
+                               Style="{StaticResource LabelLarge}"
+                               Foreground="{ThemeResource PrimaryBrush}" />
+                </StackPanel>
+
+                <ItemsRepeater ItemsSource="{Binding Shapes}">
+                    <ItemsRepeater.Layout>
+                        <StackLayout Orientation="Vertical" Spacing="20" />
+                    </ItemsRepeater.Layout>
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate>
+                            <utu:CardContentControl Style="{StaticResource ElevatedCardContentControlStyle}"
+                                                    IsClickable="False"
+                                                    HorizontalAlignment="Stretch">
+                                <StackPanel Padding="12"
+                                            Spacing="12">
+                                    <Border CornerRadius="{ThemeResource Radius200CornerRadius}"
+                                            Height="180">
+                                        <Image Source="{Binding ImageUrl}"
+                                               Stretch="UniformToFill"
+                                               AutomationProperties.Name="{Binding Name}" />
+                                    </Border>
+
+                                    <StackPanel Orientation="Horizontal"
+                                                Spacing="8">
+                                        <Rectangle Width="4"
+                                                   RadiusX="2"
+                                                   RadiusY="2"
+                                                   Fill="{ThemeResource SecondaryBrush}" />
+                                        <TextBlock Text="{Binding Category}"
+                                                   Style="{StaticResource LabelMedium}"
+                                                   VerticalAlignment="Center" />
+                                    </StackPanel>
+
+                                    <StackPanel Spacing="2">
+                                        <TextBlock Text="{Binding Name}"
+                                                   Style="{StaticResource TitleLarge}" />
+                                        <TextBlock Text="{Binding Meaning}"
+                                                   Style="{StaticResource BodyMedium}"
+                                                   Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+                                    </StackPanel>
+
+                                    <TextBlock Text="{Binding Description}"
+                                               Style="{StaticResource BodyMedium}"
+                                               TextWrapping="Wrap" />
+
+                                    <utu:CardContentControl Style="{StaticResource FilledCardContentControlStyle}"
+                                                            IsClickable="False"
+                                                            HorizontalAlignment="Stretch">
+                                        <StackPanel Padding="12"
+                                                    Spacing="6">
+                                            <StackPanel Orientation="Horizontal"
+                                                        Spacing="6">
+                                                <TextBlock Text="Origin:"
+                                                           Style="{StaticResource LabelMedium}" />
+                                                <TextBlock Text="{Binding Origin}"
+                                                           Style="{StaticResource BodyMedium}"
+                                                           TextWrapping="Wrap" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Spacing="6">
+                                                <TextBlock Text="Cook time:"
+                                                           Style="{StaticResource LabelMedium}" />
+                                                <TextBlock Text="{Binding CookTime}"
+                                                           Style="{StaticResource BodyMedium}" />
+                                            </StackPanel>
+                                            <TextBlock Text="Pairs with"
+                                                       Style="{StaticResource LabelMedium}" />
+                                            <TextBlock Text="{Binding PairsWith}"
+                                                       Style="{StaticResource BodyMedium}"
+                                                       TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </utu:CardContentControl>
+                                </StackPanel>
+                            </utu:CardContentControl>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                </ItemsRepeater>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
